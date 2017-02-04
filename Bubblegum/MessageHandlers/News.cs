@@ -103,30 +103,30 @@ namespace Bubblegum.MessageHandlers
 					verbUpdates += "s";
 				}
 
-				var message = ":two_hearts: **" + f.Name + "** " + verbUpdates + ":\n\n";
+				int c = 0;
 				foreach (var item in newItems) {
-					if (message.Length >= 1800) {
-						channel.SendMessage(message + "(cont)");
-						message = "";
-					}
+					var message = "";
 
 					var latestTime = item.LastUpdatedTime.UtcDateTime;
 					if (item.PublishDate.UtcDateTime > latestTime) {
 						latestTime = item.PublishDate.UtcDateTime;
 					}
-					message += "- " + latestTime.ToString("HH:mm:ss") + ": `" + item.Title.Text + "`";
+					message += "[" + latestTime.ToString("HH:mm:ss") + "] ";
+
+					message += "[" + f.Name + "] `" + item.Title.Text + "`";
+
 					if (item.Authors.Count > 0 && item.Authors[0].Name != null && item.Authors[0].Name.Length > 0) {
-						message += " by *" + item.Authors[0].Name + "*";
+						message += " - *" + item.Authors[0].Name + "*";
 					}
 					if (item.Links != null && item.Links.Count > 0) {
-						message += " " + Program.ShortUrl(item.Links[0].Uri.ToString());
+						message += " - " + Program.ShortUrl(item.Links[0].Uri.ToString());
 					}
-					message += "\n";
+					channel.SendMessage(message);
+
+					Logging.Info("News [{0}] {1} / {2}: {3}", f.Name, ++c, newItems.Count, item.Title.Text);
 				}
 
 				f.LastPoll = DateTime.UtcNow;
-
-				channel.SendMessage(message);
 			}
 
 			Program.SaveConfig();
