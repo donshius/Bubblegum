@@ -113,11 +113,14 @@ namespace Bubblegum.MessageHandlers
 					}
 					message += "`[" + latestTime.ToString("HH:mm:ss") + "] ";
 
-					message += "[" + f.Name + "] " + item.Title.Text + "`";
+					message += "[" + f.Name + "] " + item.Title.Text;
 
 					if (item.Authors.Count > 0 && item.Authors[0].Name != null && item.Authors[0].Name.Length > 0) {
 						message += " (" + item.Authors[0].Name + ")";
 					}
+
+                    message += "`";
+
 					if (item.Links != null && item.Links.Count > 0) {
 						message += " - " + Program.ShortUrl(item.Links[0].Uri.ToString());
 					}
