@@ -111,9 +111,9 @@ namespace Bubblegum.MessageHandlers
 					if (item.PublishDate.UtcDateTime > latestTime) {
 						latestTime = item.PublishDate.UtcDateTime;
 					}
-					message += "[" + latestTime.ToString("HH:mm:ss") + "] ";
+					message += "`[" + latestTime.ToString("HH:mm:ss") + "] ";
 
-					message += "[" + f.Name + "] " + item.Title.Text;
+					message += "[" + f.Name + "] " + item.Title.Text + "`";
 
 					if (item.Authors.Count > 0 && item.Authors[0].Name != null && item.Authors[0].Name.Length > 0) {
 						message += " (" + item.Authors[0].Name + ")";
