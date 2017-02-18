@@ -40,6 +40,14 @@
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Menees.Common, Version=4.5.5691.31910, Culture=neutral, PublicKeyToken=5115291defa18758, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Menees.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Menees.Diffs, Version=4.0.2.0, Culture=neutral, PublicKeyToken=5115291defa18758, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Menees.Diffs.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -79,6 +87,7 @@
     <Compile Include="MessageHandlers\Admin.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="MessageHandlers\Google.cs" />
+    <Compile Include="MessageHandlers\NativeDb.cs" />
     <Compile Include="MessageHandlers\News.cs" />
     <Compile Include="MessageHandlers\Wiki.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +98,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Menees.Common.dll" />
+    <Content Include="Menees.Diffs.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
