@@ -12,7 +12,7 @@ namespace Bubblegum.MessageHandlers
 	{
 		public override string HandleMessage(Message msg)
 		{
-			var match = Regex.Match(msg.Text, @"\.(google|lmgtfy) (.*)");
+			var match = Regex.Match(msg.Text, @"\.(?i)(google|lmgtfy) (.*)");
 
 			if (!match.Success) {
 				return null;

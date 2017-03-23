@@ -55,8 +55,8 @@ namespace Bubblegum.MessageHandlers
 		{
 			var result = "";
 
-			var resultApi = HandleWikiMessage(msg, @"\.api ([^ $]+)");
-			var resultWiki = HandleWikiMessage(msg, @"\.wiki (.+)");
+			var resultApi = HandleWikiMessage(msg, @"(?i)\.wiki ([^ $]+)");
+			var resultWiki = HandleWikiMessage(msg, @"(?i)\.wiki (.+)");
 
 			if (resultApi == null && resultWiki == null) {
 				return null;
