@@ -90,6 +90,7 @@
     <Compile Include="MessageHandlers\Google.cs" />
     <Compile Include="MessageHandlers\NativeDb.cs" />
     <Compile Include="MessageHandlers\News.cs" />
+    <Compile Include="MessageHandlers\Playing.cs" />
     <Compile Include="MessageHandlers\Wiki.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
