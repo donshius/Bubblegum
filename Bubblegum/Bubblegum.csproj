@@ -86,6 +86,7 @@
     <Compile Include="BotPlugin.cs" />
     <Compile Include="MessageHandlers\Admin.cs" />
     <Compile Include="Logging.cs" />
+    <Compile Include="MessageHandlers\BuildUpdate.cs" />
     <Compile Include="MessageHandlers\Google.cs" />
     <Compile Include="MessageHandlers\NativeDb.cs" />
     <Compile Include="MessageHandlers\News.cs" />

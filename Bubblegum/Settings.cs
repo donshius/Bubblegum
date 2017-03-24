@@ -27,6 +27,7 @@ namespace Bubblegum
 
 	[XmlInclude(typeof(MessageHandlers.NewsConfig))]
 	[XmlInclude(typeof(MessageHandlers.NativeDbConfig))]
+	[XmlInclude(typeof(MessageHandlers.BuildUpdateConfig))]
 	public class SettingsPlugin
 	{
 		public string ClassName { get; set; }

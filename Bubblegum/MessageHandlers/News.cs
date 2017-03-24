@@ -155,7 +155,7 @@ namespace Bubblegum.MessageHandlers
 				return "**Subscribed to feed " + parse[1] + "**.";
 
 			} else if (parse[0] == ".unsubscribeNews" && parse.Length == 2) {
-				var feed = Config.Feeds.Find(f => f.Name == parse[1]);
+				var feed = Config.Feeds.Find(f => f.Name == parse[1] && f.Channel == msg.Channel.Id);
 				if (feed == null) {
 					return "**No feed found with that name.**";
 				}
