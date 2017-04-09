@@ -1,4 +1,5 @@
-﻿using Discord;
+﻿using Bubblegum.MessageHandlers;
+using Discord;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
