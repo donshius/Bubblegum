@@ -54,7 +54,7 @@ namespace Bubblegum.MessageHandlers
 		{
 			foreach (var b in Config.Branches) {
 				string version = GetVersion(b.ID);
-				if (version == b.LastVersion) {
+				if (version == b.LastVersion || version == null || version == "") {
 					continue;
 				}
 
@@ -65,7 +65,8 @@ namespace Bubblegum.MessageHandlers
 				}
 
 				b.LastVersion = version;
-				channel.SendMessage(":warning: @here **New update** on the `" + b.ID + "` branch: `" + version + "`");
+				//channel.SendMessage(":warning: @here **New update** on the `" + b.ID + "` branch: `" + version + "`");
+				channel.SendMessage(":warning: @here **New update**: `" + version + "`");
 			}
 		}
 

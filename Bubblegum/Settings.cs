@@ -28,6 +28,7 @@ namespace Bubblegum
 	[XmlInclude(typeof(MessageHandlers.NewsConfig))]
 	[XmlInclude(typeof(MessageHandlers.NativeDbConfig))]
 	[XmlInclude(typeof(MessageHandlers.BuildUpdateConfig))]
+	[XmlInclude(typeof(MessageHandlers.RestrictConfig))]
 	public class SettingsPlugin
 	{
 		public string ClassName { get; set; }
@@ -44,6 +45,7 @@ namespace Bubblegum
 		public bool UseShortUrls { get; set; }
 		public string ShortUrlApiKey { get; set; }
 
+		public ulong SuperAdmin { get; set; }
 		public List<ulong> Admins { get; set; }
 
 		public List<SettingsPlugin> Handlers { get; set; }

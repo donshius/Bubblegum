@@ -15,6 +15,10 @@ namespace Bubblegum.CommandHandlers
 		{
 			var parse = msg.RawText.SplitCommandline();
 
+			if (parse.Length == 0) {
+				return null;
+			}
+
 			if (parse[0] == ".quit") {
 				Program.QuitRequested = true;
 
@@ -41,6 +45,14 @@ namespace Bubblegum.CommandHandlers
 				return "*Admins removed.*";
 
 			} else if (parse[0] == ".addResponse" && parse.Length == 3) {
+				if (parse[1].ToLower() == "miss") {
+					return "*No.*";
+				}
+
+				if (parse[1][0] != '.' && msg.User.Id != Program.Config.SuperAdmin) {
+					return "*Please start keyword with a period!*";
+				}
+
 				var newResponse = new SettingsResponse();
 				newResponse.Keywords.Add(parse[1]);
 				newResponse.Response = parse[2];
@@ -63,6 +75,10 @@ namespace Bubblegum.CommandHandlers
 				var response = Program.Config.Responses.Find(r => r.Keywords.Contains(parse[1]));
 				if (response == null) {
 					return "*No such keyword found.*";
+				}
+
+				if (parse[2][0] != '.' && msg.User.Id != Program.Config.SuperAdmin) {
+					return "*Please start keyword with a period!*";
 				}
 				response.Keywords.Add(parse[2]);
 
