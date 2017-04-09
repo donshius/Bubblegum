@@ -1,4 +1,3 @@
-﻿using Bubblegum.MessageHandlers;
 using Discord;
 using Newtonsoft.Json;
 using System;
